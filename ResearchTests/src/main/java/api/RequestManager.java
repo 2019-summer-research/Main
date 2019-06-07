@@ -71,7 +71,7 @@ public class RequestManager {
 	 */
 	private <T> T makePostRequest(ApiMethod method) {
 
-		RequestBody body = RequestBody.create(method.getMediaType(), method.getBody().getBytes());
+		RequestBody body = RequestBody.create(method.getMediaType(), method.getBody());
 		Request.Builder request = new Request.Builder();
 
 		// Append each of the headers for this method
