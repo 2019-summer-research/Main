@@ -128,6 +128,10 @@ public abstract class ApiMethod {
 		this.mediaType = mediaType;
 	}
 
+	public void setReturnType(Type returnType) {
+		this.returnType = returnType;
+	}
+
 	/**
 	 * Method which gets the URL for this method including all of the added {@link UrlParameter}
 	 * @return

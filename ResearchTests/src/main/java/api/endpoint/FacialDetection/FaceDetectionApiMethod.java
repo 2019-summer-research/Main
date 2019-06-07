@@ -1,6 +1,7 @@
 package api.endpoint.FacialDetection;
 
 import api.endpoint.MicrosoftApiService;
+import api.parameters.RequestMethod;
 import api.parameters.UrlParameter;
 import okhttp3.MediaType;
 
@@ -24,6 +25,12 @@ public class FaceDetectionApiMethod extends MicrosoftApiService {
 
 		// Set the body to contain the Image
 		this.setBody(imageByteArray);
+
+		// This method should be ran as POST
+		this.setMethod(RequestMethod.POST);
+
+		// Declare what the response should look like
+		this.setReturnType(FaceDetectionResponseElement.class);
 
 	}
 
