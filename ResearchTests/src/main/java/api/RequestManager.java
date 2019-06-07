@@ -1,5 +1,6 @@
 package api;
 
+import api.elements.ApiMethodErrorElement;
 import api.parameters.HttpHeaderParameter;
 import api.parameters.UrlParameter;
 import com.google.gson.Gson;
@@ -9,6 +10,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * A class which handles making API transactions to outside sources.
@@ -90,7 +92,7 @@ public class RequestManager {
 
 			// Parse the response with Gson
 			Gson gson = new Gson();
-			String responseJsonString = response.body().string();
+			String responseJsonString = Objects.requireNonNull(response.body()).string();
 
 			// If the response type for this is VOID (Meaning we are not expecting a response) do not try to use Gson
 			if(method.getReturnType() == Void.TYPE)
@@ -99,19 +101,9 @@ public class RequestManager {
 			T data = gson.fromJson(responseJsonString, method.getReturnType());
 			return data;
 
-		} catch (IOException ex) {
-			// Create a specific error message for this problem and print it to the err-out
-			StringBuilder builder = new StringBuilder();
-			builder.append("[Error] - POST request failed.\nBase URL:");
-			builder.append(method.getBaseUrl());
-			builder.append("Parameters used: ");
-			for(UrlParameter param : method.getUrlParameters()) {
-				builder.append(param.toString()).append("\n");
-			}
-			builder.append("\n");
-
-			System.err.println(builder.toString());
-
+		} catch (IOException | NullPointerException ex) {
+			// Spawn and print an error message for this function call
+			System.err.println(new ApiMethodErrorElement(method));
 		}
 
 		return null;
@@ -140,7 +132,7 @@ public class RequestManager {
 
 			// Parse the response with Gson
 			Gson gson = new Gson();
-			String responseJsonString = response.body().string();
+			String responseJsonString = Objects.requireNonNull(response.body()).string();
 
 			// If the response type for this is VOID (Meaning we are not expecting a response) do not try to use Gson
 			if(method.getReturnType() == Void.TYPE)
@@ -149,19 +141,9 @@ public class RequestManager {
 			T data = gson.fromJson(responseJsonString, method.getReturnType());
 			return data;
 
-		} catch (IOException ex) {
-			// Create a specific error message for this problem and print it to the err-out
-			StringBuilder builder = new StringBuilder();
-			builder.append("[Error] - POST request failed.\nBase URL:");
-			builder.append(method.getBaseUrl());
-			builder.append("Parameters used: ");
-			for(UrlParameter param : method.getUrlParameters()) {
-				builder.append(param.toString()).append("\n");
-			}
-			builder.append("\n");
-
-			System.err.println(builder.toString());
-
+		} catch (IOException | NullPointerException ex) {
+			// Spawn and print an error message for this function call
+			System.err.println(new ApiMethodErrorElement(method));
 		}
 
 		return null;
