@@ -70,7 +70,8 @@ public class RequestManager {
 	 * Method which uses OKHTTP to send a POST request to the specified URL saved within the @link{ApiMethod} parameter
 	 */
 	private <T> T makePostRequest(ApiMethod method) {
-		RequestBody body = RequestBody.create(method.getMediaType(), method.getBody());
+
+		RequestBody body = RequestBody.create(method.getMediaType(), method.getBody().getBytes());
 		Request.Builder request = new Request.Builder();
 
 		// Append each of the headers for this method

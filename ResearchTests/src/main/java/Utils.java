@@ -7,7 +7,7 @@ import java.nio.file.Files;
  */
 public class Utils {
 
-    public byte[] convertImageToByteArray(File file) {
+    public static byte[] convertImageToByteArray(File file) {
         try {
             return Files.readAllBytes(file.toPath());
         } catch (IOException e) {

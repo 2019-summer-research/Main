@@ -41,7 +41,7 @@ public abstract class ApiMethod {
 	/**
 	 * The body for a given request
 	 */
-	private String body = null;
+	private byte[] body = null;
 
 	/**
 	 * The return type for the request
@@ -69,7 +69,7 @@ public abstract class ApiMethod {
 	 * Returns the request body to the requester
 	 * @return the current apimethod body
 	 */
-	public String getBody() {
+	public byte[] getBody() {
 		return this.body;
 	}
 
@@ -77,7 +77,7 @@ public abstract class ApiMethod {
 	 * Sets the request body to an input string
 	 * @param body
 	 */
-	public void setBody(String body) {
+	public void setBody(byte[] body) {
 		this.body = body;
 	}
 
@@ -122,6 +122,10 @@ public abstract class ApiMethod {
 
 	public List<UrlParameter> getUrlParameters() {
 		return urlParameters;
+	}
+
+	public void setMediaType(MediaType mediaType) {
+		this.mediaType = mediaType;
 	}
 
 	/**
