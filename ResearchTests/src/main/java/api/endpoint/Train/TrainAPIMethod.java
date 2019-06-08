@@ -10,7 +10,7 @@ public class TrainAPIMethod extends MicrosoftApiService {
 
     public TrainAPIMethod(String GroupID){
         this.setUrlBase("https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/"+GroupID+"/train");
-        MediaType JSON = MediaType.get("appliation/JSON; charset=utf-8");
+        MediaType JSON = MediaType.get("application/JSON; charset=utf-8");
         this.setMediaType(JSON);
 
 

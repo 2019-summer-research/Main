@@ -9,7 +9,7 @@ public class FacesAPIMethod extends MicrosoftApiService {
 
         this.setUrlBase("https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/"+PersonGroup+"/persons/"+PersonID+"/persistedFaces");
 
-        MediaType octetMediaType = MediaType.get("appliation/octet-stream; charset=utf-8");
+        MediaType octetMediaType = MediaType.get("application/octet-stream; charset=utf-8");
         this.setMediaType(octetMediaType);
 
         // Set the body to contain the Image

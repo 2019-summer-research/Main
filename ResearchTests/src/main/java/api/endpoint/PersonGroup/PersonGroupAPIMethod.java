@@ -10,7 +10,7 @@ public class PersonGroupAPIMethod extends MicrosoftApiService {
     public PersonGroupAPIMethod(String GroupID,String Name,String CustomData)
     {
         this.setUrlBase("https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + GroupID);
-        MediaType JSON = MediaType.get("appliation/JSON; charset=utf-8");
+        MediaType JSON = MediaType.get("application/json");
         this.setMediaType(JSON);
         String body = "{"
                 + "'name':'" + Name + "',"
@@ -18,7 +18,7 @@ public class PersonGroupAPIMethod extends MicrosoftApiService {
                 + "}";
         this.setBody(body.getBytes());
         this.setMethod(RequestMethod.PUT);
-        this.setReturnType(Void.TYPE);
+        this.setReturnType(PersonGroupResponseElement.class);
     }
 
 
