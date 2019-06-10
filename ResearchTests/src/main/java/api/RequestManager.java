@@ -56,7 +56,7 @@ public class RequestManager {
 
 		// We want to be sure to check the holding pattern every (1) seconds and handle any available methods eligible
 		final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-		executorService.scheduleAtFixedRate(RequestManager::handleHoldingPattern, 2, 1, TimeUnit.SECONDS);
+		executorService.scheduleAtFixedRate(RequestManager::handleHoldingPattern, 0, 1, TimeUnit.SECONDS);
 	}
 
 	public <T> T makeApiRequest(ApiMethod method) {

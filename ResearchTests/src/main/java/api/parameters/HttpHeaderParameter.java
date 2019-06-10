@@ -7,8 +7,8 @@ public class HttpHeaderParameter {
 
 	/**
 	 * Since HTTP headers can only handle Strings, no overloads are needed for this wrapper
-	 * @param key
-	 * @param value
+	 * @param key The key used for the header
+	 * @param value The value used for the header
 	 */
 	public HttpHeaderParameter(String key, String value) {
 		this.key = key;

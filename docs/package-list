@@ -1,0 +1,10 @@
+TestClient
+api
+api.elements
+api.endpoint
+api.endpoint.Faces
+api.endpoint.FacialDetection
+api.endpoint.Person
+api.endpoint.PersonGroup
+api.endpoint.Train
+api.parameters

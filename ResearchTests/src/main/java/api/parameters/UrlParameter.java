@@ -14,8 +14,8 @@ public class UrlParameter {
 	/**
 	 * Parameters must be encoded as strings for HTTP transactions. This constructor stores such values.
 	 * Each of the constructor overloads merely converts the data types into String and invokes this method
-	 * @param key
-	 * @param value
+	 * @param key The key used for the header
+	 * @param value The value used for the header
 	 */
 	public UrlParameter(String key, String value) {
 		this.key = key;
@@ -48,7 +48,7 @@ public class UrlParameter {
 
 	/**
 	 * ToString needs to convert this parameter into the proper format which can be used in a URL.
-	 * Example: Key = Shape, Value = Square --> "Shape=Square" (In UTF-8 Encoding)
+	 * Example: Key = Shape, Value = Square to "Shape=Square" (In UTF-8 Encoding)
 	 * @return the string representation of this URL parameter which can be inserted safely into a URL request
 	 */
 	@Override
