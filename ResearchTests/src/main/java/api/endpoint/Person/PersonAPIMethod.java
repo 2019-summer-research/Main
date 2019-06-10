@@ -11,7 +11,7 @@ public class PersonAPIMethod extends MicrosoftApiService {
     public PersonAPIMethod(String PersonGroupID, String Name, String Description){
 
         this.setUrlBase("https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/"+PersonGroupID+"/persons");
-        MediaType JSON = MediaType.get("appliation/JSON; charset=utf-8");
+        MediaType JSON = MediaType.get("application/JSON; charset=utf-8");
         this.setMediaType(JSON);
         String body = "{"
                 + "'name':'" + Name + "',"
@@ -22,6 +22,9 @@ public class PersonAPIMethod extends MicrosoftApiService {
         this.setReturnType(PersonResponseElement.class);
 
     }
+
+
+
 
 
 

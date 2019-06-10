@@ -20,7 +20,7 @@ public class FaceDetectionApiMethod extends MicrosoftApiService {
 		this.addUrlParameter(new UrlParameter("returnFaceId", "true"));
 
 		// This method will be using an octet-stream as a type, as we're uploading an image byte array instead of a URL
-		MediaType octetMediaType = MediaType.get("appliation/octet-stream; charset=utf-8");
+		MediaType octetMediaType = MediaType.get("application/octet-stream; charset=utf-8");
 		this.setMediaType(octetMediaType);
 
 		// Set the body to contain the Image
