@@ -3,6 +3,7 @@ package api;
 import api.parameters.HttpHeaderParameter;
 import api.parameters.RequestMethod;
 import api.parameters.UrlParameter;
+import javafx.util.Pair;
 import okhttp3.MediaType;
 
 import java.lang.reflect.Type;
@@ -71,6 +72,20 @@ public abstract class ApiMethod {
 	 */
 	public byte[] getBody() {
 		return this.body;
+	}
+
+	/**
+	 * If this APIMethod is ratelimited to a certain frequency, an attached RatelimitManager will handle timing the
+	 * send requests to appropriate levels.
+	 */
+	RatelimitManager ratelimitManager = null;
+
+	public RatelimitManager getRatelimitManager() {
+		return ratelimitManager;
+	}
+
+	public void setRatelimitManager(RatelimitManager ratelimitManager) {
+		this.ratelimitManager = ratelimitManager;
 	}
 
 	/**
