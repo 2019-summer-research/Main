@@ -77,7 +77,7 @@ public class RequestManager {
 		switch(method.getMethod()) {
 			case DELETE:
 				break;
-			case GET:
+			case GET: response = this.makeGetRequest(method);
 				break;
 			case HEAD:
 				break;
@@ -95,6 +95,44 @@ public class RequestManager {
 		}
 
 		return response;
+	}
+
+	private <T> T makeGetRequest(ApiMethod method) {
+		
+		Request.Builder request = new Request.Builder();
+
+		// Append each of the headers for this method
+		for (HttpHeaderParameter currentHeader : method.getHttpHeaderParameters()) {
+			request.addHeader(currentHeader.getKey(), currentHeader.getValue());
+		}
+
+		try {
+			// Append the request body
+			Request builtRequest = request.url(method.getUrl())
+					.get()
+					.build();
+
+			// Make the request
+			Response response = okClient.newCall(builtRequest).execute();
+
+			// Parse the response with Gson
+			Gson gson = new Gson();
+			String responseJsonString = Objects.requireNonNull(response.body()).string();
+			System.out.println(responseJsonString);
+
+			// If the response type for this is VOID (Meaning we are not expecting a response) do not try to use Gson
+			if(method.getReturnType() == Void.TYPE)
+				return (T) Void.TYPE;
+
+			T data = gson.fromJson(responseJsonString, method.getReturnType());
+			return data;
+
+		} catch (IOException | NullPointerException ex) {
+			// Spawn and print an error message for this function call
+			System.err.println(new ApiMethodErrorElement(method));
+		}
+
+		return null;
 	}
 
 	/**
