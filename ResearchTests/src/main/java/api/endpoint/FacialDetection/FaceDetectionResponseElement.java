@@ -15,6 +15,29 @@ public class FaceDetectionResponseElement {
 
 	FaceAttributes faceAttributes;
 
+	public HashMap<String, String> getError() {
+		return error;
+	}
+
+	public String getFaceId() {
+		return faceId;
+	}
+
+	public String getRecgonitionModel() {
+		return recgonitionModel;
+	}
+
+	public HashMap<String, Integer> getFaceRectangle() {
+		return faceRectangle;
+	}
+
+	public HashMap<String, HashMap<String, Float>> getFaceLandmarks() {
+		return faceLandmarks;
+	}
+
+	public FaceAttributes getFaceAttributes() {
+		return faceAttributes;
+	}
 }
 
 class FaceAttributes {

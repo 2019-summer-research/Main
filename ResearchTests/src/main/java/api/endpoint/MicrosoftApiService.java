@@ -7,7 +7,7 @@ import javafx.util.Pair;
 
 public abstract class MicrosoftApiService extends ApiMethod {
 
-	static RatelimitManager microsoftRatelimitManager = new RatelimitManager(15, 15);
+	static RatelimitManager microsoftRatelimitManager = new RatelimitManager(15, 120);
 
 	/**
 	 * All services require a Ocp-Apim-Subscription-Key to function correctly. Ensure that all Microsoft services
