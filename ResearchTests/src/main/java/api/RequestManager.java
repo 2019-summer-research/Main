@@ -216,6 +216,7 @@ public class RequestManager {
 
 		// Otherwise, check through all of the elements and see if any of them may be sent
 		for(ApiMethod method : holdingPatternList) {
+			method.getRatelimitManager().checkTimeSegment();
 			if(method.getRatelimitManager().isTransactionAllowed()) {
 				// The transaction may be sent, send it to the request manager
 				RequestManager.getInstance().makeApiRequest(method);
