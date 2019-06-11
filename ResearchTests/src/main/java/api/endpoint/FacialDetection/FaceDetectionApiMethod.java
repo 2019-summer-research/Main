@@ -3,7 +3,10 @@ package api.endpoint.FacialDetection;
 import api.endpoint.MicrosoftApiService;
 import api.parameters.RequestMethod;
 import api.parameters.UrlParameter;
+import com.google.gson.reflect.TypeToken;
 import okhttp3.MediaType;
+
+import java.util.Collection;
 
 public class FaceDetectionApiMethod extends MicrosoftApiService {
 
@@ -30,7 +33,7 @@ public class FaceDetectionApiMethod extends MicrosoftApiService {
 		this.setMethod(RequestMethod.POST);
 
 		// Declare what the response should look like
-		this.setReturnType(FaceDetectionResponseElement.class);
+		this.setReturnType(new TypeToken<Collection<FaceDetectionResponseElement>>(){}.getType());
 
 	}
 

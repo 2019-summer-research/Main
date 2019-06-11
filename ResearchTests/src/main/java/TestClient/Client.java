@@ -20,6 +20,7 @@ import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Client {
@@ -136,16 +137,16 @@ public class Client {
         }
 
         FaceDetectionApiMethod FD = new FaceDetectionApiMethod(ConvertImage(TestFace));
-        FaceDetectionResponseElement elementfd = RequestManager.getInstance().makeApiRequest(FD);
+        ArrayList<FaceDetectionResponseElement> elementfd = RequestManager.getInstance().makeApiRequest(FD);
 
-        System.out.println(elementfd.getFaceId());
+        System.out.println(elementfd.get(0).getFaceId());
 
-        IdentifyApiMethod ID = new IdentifyApiMethod(elementfd.getFaceId(),GroupID);
+        IdentifyApiMethod ID = new IdentifyApiMethod(elementfd.get(0).getFaceId(),GroupID);
 
-        IdentifyResponseElement IDR = RequestManager.getInstance().makeApiRequest(ID);
+        ArrayList<IdentifyResponseElement> IDR = RequestManager.getInstance().makeApiRequest(ID);
         System.out.println("Identified");
 
-        PersonInfoAPIMethod PI = new PersonInfoAPIMethod(IDR.getID(),GroupID);
+        PersonInfoAPIMethod PI = new PersonInfoAPIMethod(IDR.get(0).getID(),GroupID);
         PersonInfoResponseElement PIelement = RequestManager.getInstance().makeApiRequest(PI);
         System.out.println(PIelement.getName());
         System.out.println("Done");
