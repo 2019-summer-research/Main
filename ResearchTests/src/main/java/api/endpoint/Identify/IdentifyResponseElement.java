@@ -11,6 +11,9 @@ public class IdentifyResponseElement {
     public String getID() {
         return candidates[0].getPersonId();
     }
+    public Float getConfidence(){
+        return candidates[0].getConfidence();
+    }
 }
 class Candidate {
     String personId;
