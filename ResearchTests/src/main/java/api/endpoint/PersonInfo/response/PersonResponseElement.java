@@ -1,4 +1,4 @@
-package api.endpoint.Person;
+package api.endpoint.PersonInfo.response;
 
 import java.util.HashMap;
 

@@ -1,9 +1,8 @@
-package api.endpoint.PersonInfo;
+package api.endpoint.PersonInfo.methods;
 
-import api.endpoint.Identify.IdentifyResponseElement;
 import api.endpoint.MicrosoftApiService;
+import api.endpoint.PersonInfo.response.PersonInfoResponseElement;
 import api.parameters.RequestMethod;
-import api.parameters.UrlParameter;
 import okhttp3.MediaType;
 
 public class PersonInfoAPIMethod extends MicrosoftApiService {

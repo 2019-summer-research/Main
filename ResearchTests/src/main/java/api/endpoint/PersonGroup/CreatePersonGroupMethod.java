@@ -4,10 +4,10 @@ import api.endpoint.MicrosoftApiService;
 import api.parameters.RequestMethod;
 import okhttp3.MediaType;
 
-public class PersonGroupAPIMethod extends MicrosoftApiService {
+public class CreatePersonGroupMethod extends MicrosoftApiService {
 
 
-    public PersonGroupAPIMethod(String GroupID,String Name,String CustomData)
+    public CreatePersonGroupMethod(String GroupID, String Name, String CustomData)
     {
         this.setUrlBase("https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + GroupID);
         MediaType JSON = MediaType.get("application/json");

@@ -1,4 +1,4 @@
-package api.endpoint.PersonInfo;
+package api.endpoint.PersonInfo.response;
 
 public class PersonInfoResponseElement {
     String personId;

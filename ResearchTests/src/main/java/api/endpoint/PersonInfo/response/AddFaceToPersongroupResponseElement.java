@@ -1,8 +1,8 @@
-package api.endpoint.Faces;
+package api.endpoint.PersonInfo.response;
 
 import java.util.HashMap;
 
-public class FacesResponseElement {
+public class AddFaceToPersongroupResponseElement {
 
     HashMap<String, String> error;
     String persistedFaceId;

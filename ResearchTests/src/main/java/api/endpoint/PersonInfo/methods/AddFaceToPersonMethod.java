@@ -5,8 +5,8 @@ import api.endpoint.MicrosoftApiService;
 import api.parameters.RequestMethod;
 import okhttp3.MediaType;
 
-public class AddFaceToPersongroupMethod extends MicrosoftApiService {
-    public AddFaceToPersongroupMethod(byte[] imageByteArray, String PersonGroup, String PersonID){
+public class AddFaceToPersonMethod extends MicrosoftApiService {
+    public AddFaceToPersonMethod(byte[] imageByteArray, String PersonGroup, String PersonID){
 
         this.setUrlBase("https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/"+PersonGroup+"/persons/"+PersonID+"/persistedFaces");
 
