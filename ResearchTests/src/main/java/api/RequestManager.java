@@ -202,6 +202,8 @@ public class RequestManager {
 			Gson gson = new Gson();
 			String responseJsonString = Objects.requireNonNull(response.body()).string();
 
+			System.out.println(responseJsonString);
+
 			// If the response type for this is VOID (Meaning we are not expecting a response) do not try to use Gson
 			if(method.getReturnType() == Void.TYPE)
 				return (T) Void.TYPE;
